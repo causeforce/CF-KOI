@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { JsonpModule } from '@angular/http';
 import * as $ from 'jquery';
 
 
@@ -39,6 +40,7 @@ export const firebaseConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     RouterModule.forRoot(appRoutes)

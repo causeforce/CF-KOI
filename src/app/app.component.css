@@ -24,3 +24,8 @@ div.error {
     text-align: left;
     font-weight: 700;
 }
+
+.koi-logo {
+    height: 50px;
+    margin-top: -15px;
+}
