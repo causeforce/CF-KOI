@@ -1,4 +1,7 @@
-iframe {
-    width: 100%;
-    min-height: 600px;
+.data-json {
+    list-style: none;
+    font-weight: 700;
+}
+ul > li {
+    margin-bottom: 10px;
 }
