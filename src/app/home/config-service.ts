@@ -16,7 +16,7 @@ export class ConfigurationService {
     
     getConfiguration = (): Observable<Response> => {
         console.log("In getConfiguration of ConfigurationService");
-        let jSonUrl = 'https://crossorigin.me/https://secure2.convio.net/cfrca/site/CRTeamraiserAPI?method=getTopParticipantsData&api_key=cfrca&v=1.0&fr_id=1581&response_format=json';
+        let jSonUrl = 'https://secure2.convio.net/cfrca/site/CRTeamraiserAPI?method=getTopParticipantsData&api_key=cfrca&v=1.0&fr_id=1581&response_format=json';
         return this.http.get(jSonUrl).map(res => res.json());
     }
 }

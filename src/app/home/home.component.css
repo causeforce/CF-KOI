@@ -5,3 +5,16 @@
 ul > li {
     margin-bottom: 10px;
 }
+tr > a {
+    padding: 0 10px;
+    line-height: 2.5;
+}
+
+tr > th {
+    background: #0075c9;
+    color: #fff;
+}
+
+tr > td {
+    text-align: center;
+}

@@ -1,5 +1,64 @@
 <!-- Routes from Menu -->
-<h1 class="text-center" *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!</h1>
-<ul class="data-json">
+<p class="text-center" *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!</p>
+<!--<ul class="data-json">-->
 <!--    {{data?.getTopParticipantsDataResponse.teamraiserData[0].name}}-->
-</ul>
+<!--</ul>-->
+<table class="table table-bordered table-hover">
+ <tr class="text-center">
+     <th>RTCC</th>
+     <th class="text-center">RFI</th>
+     <th class="text-center">RDR</th>
+     <th class="text-center">CRW</th>
+     <th class="text-center">WLK</th>
+     <th class="text-center">DON$</th>
+     <th class="text-center">REG$</th>
+ </tr>
+  <tr class="data-json"> 
+     <a href="#">2017 Alberta RTCC</a>
+  </tr>
+  <tr>
+     <a href="#">2017 Montreal RTCC</a>
+      <td>Test 2</td>
+      <td>Test 2</td>
+      <td>Test 2</td>
+      <td>Test 2</td>
+      <td>Test 2</td>
+      <td>Test 2</td>
+  </tr>
+  <tr>
+     <a href="#">2017 Toronto RTCC</a>
+      <td>Test 3</td>
+      <td>Test 3</td>
+      <td>Test 3</td>
+      <td>Test 3</td>
+      <td>Test 3</td>
+      <td>Test 3</td>
+  </tr>
+  <tr>
+     <a href="#">2017 Vancouver RTCC</a>
+      <td>Test 4</td>
+      <td>Test 4</td>
+      <td>Test 4</td>
+      <td>Test 4</td>
+      <td>Test 4</td>
+      <td>Test 4</td>
+  </tr>
+  <tr>
+     <a href="#">2017 Melbourne OneDay</a>
+      <td>Test 5</td>
+      <td>Test 5</td>
+      <td>Test 5</td>
+      <td>Test 5</td>
+      <td>Test 5</td>
+      <td>Test 5</td>
+  </tr>
+  <tr>
+     <a href="#">2017 Brisbane OneDay</a>
+      <td>Test 6</td>
+      <td>Test 6</td>
+      <td>Test 6</td>
+      <td>Test 6</td>
+      <td>Test 6</td>
+      <td>Test 6</td>
+  </tr>
+</table>

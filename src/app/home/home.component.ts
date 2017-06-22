@@ -14,9 +14,6 @@ import { ConfigurationService } from './config-service';
 export class HomeComponent {
     
     configs;
-    
-    email: string;
-    password: string;
     data;
 
     constructor(public authService: AuthService,
@@ -25,6 +22,10 @@ export class HomeComponent {
         console.log("Reading _ConfigurationService ");
         //console.log(_ConfigurationService.getConfiguration());
         
+        $.post( "https://secure2.convio.net/cfrca/site/CRTeamraiserAPI?method=getRegistration&api_key=cfrca&v=1.0&fr_id=1581&response_format=json", function( data ) {
+          $( ".data-json" ).append("<td>" + this.data.registeration.feesPaid + "</td>");
+        });
+        
         this._ConfigurationService.getConfiguration()
             .subscribe(
             (res) => {
@@ -32,9 +33,13 @@ export class HomeComponent {
                 console.log("after reading");
                 console.log(this.data);
                 console.log(this.data.getTopParticipantsDataResponse.teamraiserData);
-                for (let data of this.data.getTopParticipantsDataResponse.teamraiserData) {
+//                for (let data of this.data.getTopParticipantsDataResponse.teamraiserData) {
 //                    console.log(data.name + " " + data.total);
-                    $('.data-json').append("<li>" + data.name + "</li><li>" + data.total + "</li> <br>");
+//                    $('.data-json').append(data.total);
+//                }
+                
+                for (let data of this.data.registeration) {
+                    $('.data-json').append("<td>" + data.feePaid + "</td>");
                 }
                 
             },
@@ -42,19 +47,4 @@ export class HomeComponent {
             () => console.log('Error in GetApplication in Login : ' + Error)
         );  
     }
-
-    signup() {
-        this.authService.signup(this.email, this.password);
-        this.email = this.password = '';
-    }
-
-    login() {
-    this.authService.login(this.email, this.password);
-    this.email = this.password = '';
-    }
-
-    logout() {
-    this.authService.logout();
-    }
-    
 }

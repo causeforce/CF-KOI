@@ -9,8 +9,19 @@
     margin-top: 50px
 }
 
+/*=== Navbar Styling ===*/
+
+.navbar-inverse {
+    background: #0075c9;
+}
+
+.navbar-inverse .navbar-nav> li > a {
+    color: #eaeaea;
+}
 .navbar-inverse .navbar-nav>.active>a {
-    background: #e74c3c;
+    background: #fff;
+    color: #000;
+    font-weight: 700;
 }
 
 .logout-btn {
