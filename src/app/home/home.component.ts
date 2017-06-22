@@ -22,10 +22,6 @@ export class HomeComponent {
         console.log("Reading _ConfigurationService ");
         //console.log(_ConfigurationService.getConfiguration());
         
-        $.post( "https://secure2.convio.net/cfrca/site/CRTeamraiserAPI?method=getRegistration&api_key=cfrca&v=1.0&fr_id=1581&response_format=json", function( data ) {
-          $( ".data-json" ).append("<td>" + this.data.registeration.feesPaid + "</td>");
-        });
-        
         this._ConfigurationService.getConfiguration()
             .subscribe(
             (res) => {

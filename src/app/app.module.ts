@@ -16,13 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './providers/auth.service';
 import { AuthGuard } from './providers/auth.guard';
 import { ConfigurationService } from './home/config-service';
-
-
-const appRoutes: Routes = [
-    { path: 'app-home', component: HomeComponent, canActivate: [AuthGuard] },
-    { path: 'login', component: LoginComponent },
-    { path: '', redirectTo: 'login', pathMatch: 'full'}
-];
+import { AppRoutingModule } from './app-routing.module';
 
 export const firebaseConfig = {
     apiKey: 'AIzaSyDhizBSnKTGoqR3kaOZGP5OJ4fmuvCeXmM',
@@ -44,9 +38,9 @@ export const firebaseConfig = {
     FormsModule,
     HttpModule,
     JsonpModule,
+    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    RouterModule.forRoot(appRoutes)
+    AngularFireAuthModule
   ],
   providers: [
       AuthService,
