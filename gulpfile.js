@@ -8,7 +8,7 @@ gulp.task( 'deploy', function () {
         host:     'causeforce.com',
         user:     'mquraishi@causeforce.com',
         password: 'C(cR==Hs.^If',
-        parallel: 10,
+        parallel: 5,
         log:      gutil.log
     } );
  
