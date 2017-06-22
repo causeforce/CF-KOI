@@ -6,9 +6,9 @@ gulp.task( 'deploy', function () {
  
     var conn = ftp.create( {
         host:     'causeforce.com',
-        user:     'mquraishi@causeforce.com',
-        password: 'C(cR==Hs.^If',
-        parallel: 10,
+        user:     'causeforce1oz',
+        password: 'qAx6/WQr6Bz,',
+        parallel: 5,
         log:      gutil.log
     } );
  
