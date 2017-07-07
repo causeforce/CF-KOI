@@ -2,6 +2,10 @@
     list-style: none;
     font-weight: 700;
 }
+.to-crew,
+.to-rider{
+    font-weight: 700;
+}
 ul > li {
     margin-bottom: 10px;
 }
@@ -17,4 +21,12 @@ tr > th {
 
 tr > td {
     text-align: center;
+}
+
+tr:first-child {
+    text-align: left;
+}
+
+tr > td:first-child {
+    text-align: left;
 }

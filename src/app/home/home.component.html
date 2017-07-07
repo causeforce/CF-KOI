@@ -1,66 +1,87 @@
 <!-- Routes from Menu -->
-<p class="text-center" *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!</p>
+<!--<p class="text-center" *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!</p>-->
+<h3 class="text-center" *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.displayName  }}!</h3>
+<!--<input class="display-name" type="text">-->
+<!--<button class="btn btn-primary" (click)="changeDisplayName()">Set Display Name</button>-->
 <!--<ul class="data-json">-->
 <!--    {{data?.getTopParticipantsDataResponse.teamraiserData[0].name}}-->
 <!--</ul>-->
 <div class="table-responsive">
     <table class="table table-bordered table-hover">
-     <tr class="text-center">
-         <th>RTCC poopie</th>
-         <th class="text-center">RFI</th>
-         <th class="text-center">RDR</th>
-         <th class="text-center">CRW</th>
-         <th class="text-center">WLK</th>
-         <th class="text-center">DON$</th>
-         <th class="text-center">REG$</th>
-     </tr>
-      <tr class="data-json"> 
-         <a href="#">2017 Alberta RTCC</a>
-      </tr>
-      <tr>
-         <a href="#">2017 Montreal RTCC</a>
-          <td>Test 2</td>
-          <td>Test 2</td>
-          <td>Test 2</td>
-          <td>Test 2</td>
-          <td>Test 2</td>
-          <td>Test 2</td>
-      </tr>
-      <tr>
-         <a href="#">2017 Toronto RTCC</a>
-          <td>Test 3</td>
-          <td>Test 3</td>
-          <td>Test 3</td>
-          <td>Test 3</td>
-          <td>Test 3</td>
-          <td>Test 3</td>
-      </tr>
-      <tr>
-         <a href="#">2017 Vancouver RTCC</a>
-          <td>Test 4</td>
-          <td>Test 4</td>
-          <td>Test 4</td>
-          <td>Test 4</td>
-          <td>Test 4</td>
-          <td>Test 4</td>
-      </tr>
-      <tr>
-         <a href="#">2017 Melbourne OneDay</a>
-          <td>Test 5</td>
-          <td>Test 5</td>
-          <td>Test 5</td>
-          <td>Test 5</td>
-          <td>Test 5</td>
-          <td>Test 5</td>
-      </tr>
-      <tr>
-         <a href="#">2017 Brisbane OneDay</a>
-          <td>Test 6</td>
-          <td>Test 6</td>
-          <td>Test 6</td>
-          <td>Test 6</td>
-          <td>Test 6</td>
-          <td>Test 6</td>
-      </tr>
+        <tr class="text-center">
+            <th>RTCC</th>
+            <th class="text-center">RFI</th>
+            <th class="text-center">RDR</th>
+            <th class="text-center">CRW</th>
+            <th class="text-center">WLK</th>
+            <th class="text-center">DON$</th>
+            <th class="text-center">REG$</th>
+        </tr>
+        <tr class="data-json"> 
+            <td>
+                <a href="#">2017 Alberta RTCC</a>
+            </td>
+            <td class="ab-rfi"></td>
+            <td class="ab-rider"></td>
+            <td class="ab-crew"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#">2017 Montreal RTCC</a>
+            </td>
+            <td class="mo-rfi"></td>
+            <td class="mo-rider"></td>
+            <td class="mo-crew"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#">2017 Toronto RTCC</a>
+            </td>
+            <td class="to-rfi"></td>
+            <td class="to-rider"></td>
+            <td class="to-crew"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#">2017 Vancouver RTCC</a>
+            </td>
+            <td class="va-rfi"></td>
+            <td class="va-rider"></td>
+            <td class="va-crew"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#">2017 Melbourne OneDay</a>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="ml-walkers"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="#">2017 Brisbane OneDay</a>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="br-walkers"></td>
+            <td></td>
+            <td></td>
+        </tr>
     </table>
 </div>

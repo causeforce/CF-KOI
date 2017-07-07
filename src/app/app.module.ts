@@ -15,8 +15,9 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './providers/auth.service';
 import { AuthGuard } from './providers/auth.guard';
-import { ConfigurationService } from './home/config-service';
+import { GetAuthSSOToken } from './home/config-service';
 import { AppRoutingModule } from './app-routing.module';
+import { SettingsComponent } from './settings/settings.component';
 
 export const firebaseConfig = {
     apiKey: 'AIzaSyDhizBSnKTGoqR3kaOZGP5OJ4fmuvCeXmM',
@@ -31,7 +32,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,7 @@ export const firebaseConfig = {
   providers: [
       AuthService,
       AuthGuard,
-      ConfigurationService
+      GetAuthSSOToken
   ],
   bootstrap: [AppComponent]
 })

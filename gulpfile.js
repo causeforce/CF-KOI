@@ -17,7 +17,7 @@ gulp.task( 'deploy', function () {
         'dist/assets/'
     ];
  
-    // using base = '.' will transfer everything to /public_html correctly 
+    // using base = '.' will transfer everything to /subdomain/koi correctly 
     // turn off buffering in gulp.src for best performance 
  
     return gulp.src( globs, { base: './dist/', buffer: false } )
