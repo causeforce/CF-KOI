@@ -137,36 +137,37 @@ export class HomeComponent {
             (error) => console.log('error : ' + error),
             () => console.log('Error in GetApplication in Login : ' + Error)
         );
-        
+// *================================ BEGIN ONEDAY CODE ================================ * //
+
         this._GetAuthSSOToken.getOneDaySSOAuthToken()
             .subscribe(
             (res) => {
                 this.data = res;
                 console.log('after reading');
                 console.log(this.data);
-                
+
                 const brisbaneWalkerGroupID = '52862';
                 const melbourneWalkerGroupID = '53147';
 
                 const convioUrl = 'https://secure2.convio.net/cfnz/site/CRGroupAPI?';
                 const getGroupInfo = 'method=getGroupInfo&api_key=cfnz&v=1.0&response_format=json&group_id=';
-                
+
                 // Brisbane URLs
                 const brisbaneWalkerUrl = convioUrl + getGroupInfo + brisbaneWalkerGroupID + '&sso_auth_token=';
-                
-                //Melbourne URLs
+
+                // Melbourne URLs
                 const melbourneWalkerUrl = convioUrl + getGroupInfo + melbourneWalkerGroupID + '&sso_auth_token=';
-                
+
                 // Brisbane 2017
                 $.getJSON(brisbaneWalkerUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
                     $('.br-walkers').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
-                
+
                  // Melbourne 2017
                 $.getJSON(melbourneWalkerUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
                     $('.ml-walkers').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
-                
+
                 },
             (error) => console.log('error : ' + error),
             () => console.log('Error in GetApplication in Login : ' + Error)

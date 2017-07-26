@@ -34,7 +34,7 @@ export class AuthService {
             .auth
             .signInWithEmailAndPassword(email, password)
             .then(value => {
-            console.log('Nice, it worked!');
+            console.log('Awesome, logged in!');
             console.log(value);
             this.loggedIn = true;
             this.router.navigate(['/app-home']);

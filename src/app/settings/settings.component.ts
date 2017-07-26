@@ -14,13 +14,25 @@ export class SettingsComponent {
 
   changeDisplayName() {
             firebase.auth().onAuthStateChanged(function (user) {
-              user.updateProfile({
+                user.updateProfile({
                 displayName: $('.display-name').val()
-              });
-              if (user) {
-                console.log(user);
-              } else {
-              }
+                });
+                if (user) {
+                    console.log(user);
+                } else {
+                }
+            });
+      }
+    verifyEmail() {
+            firebase.auth().onAuthStateChanged(function (user) {
+                user.sendEmailVerification();
+                 if (user.emailVerified) {
+                    console.log('Email is verified');
+                    $('.email-verify').html('Email is verified. You\'re all set!');
+                  } else {
+                    console.log('Email is not verified');
+                      $('.email-verify').html('Email is NOT verified. Please check your email.');
+                  }
             });
       }
 

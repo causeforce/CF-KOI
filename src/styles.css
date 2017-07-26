@@ -13,13 +13,27 @@ svg {
     max-width: 100px;
 }
 
-.pre-loader {
-    height: 250px;
-    display: block;
+/*
+.center-preloader {
+    position: relative;
+    background: #fff;
+    height: 200px;
+    width: 60%;
     margin: 0 auto;
+    padding: 20px;
+    resize: both;
+    overflow: auto;
+}
+*/
+
+.pre-loader {
     position: absolute;
-    top: 20%;
-    left: 40%;
+    top: 50%;
+    left: 50%;
+    margin: -170px 0 0 -120px;
+    padding: 20px;
+    height: 250px;
+    
     -webkit-animation-name: spin;
     -webkit-animation-duration: 4000ms;
     -webkit-animation-iteration-count: infinite;

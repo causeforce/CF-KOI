@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './providers/auth.service';
 import * as firebase from 'firebase';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -19,11 +20,11 @@ export class AppComponent {
     }
 
     login() {
-    this.authService.login(this.email, this.password);
-    this.email = this.password = '';
+        this.authService.login(this.email, this.password);
+        this.email = this.password = '';
     }
 
     logout() {
-    this.authService.logout();
+        this.authService.logout();
     }
 }
