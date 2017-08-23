@@ -28,7 +28,7 @@ export class SettingsComponent {
                 user.sendEmailVerification();
                  if (user.emailVerified) {
                     console.log('Email is verified');
-                    $('.email-verify').html('Email is verified. You\'re all set!');
+                    $('.email-verify').html('Email is now verified. You\'re all set!');
                   } else {
                     console.log('Email is not verified');
                       $('.email-verify').html('Email is NOT verified. Please check your email.');

@@ -28,8 +28,8 @@ export class HomeComponent {
             (res) => {
                 this.data = res;
                 console.log('after reading');
-                console.log(this.data);
-                console.log(this.data.getSingleSignOnTokenResponse.token);
+//                console.log(this.data);
+//                console.log(this.data.getSingleSignOnTokenResponse.token);
 //                for (let data of this.data.getTopParticipantsDataResponse.teamraiserData) {
 //                    console.log(data.name + " " + data.total);
 //                    $('.data-json').append(data.total);
@@ -39,92 +39,105 @@ export class HomeComponent {
 //                    console.log(this.data.getSingleSignOnTokenResponse.token);
 //                }
 //
-                // Group ID per Event
-                const albertaRiderGroupID = '225527';
-                const albertaCrewGroupID = '225528';
-                const albertaRFIGroupID = '225929';
-
-                const torontoRiderGroupID = '225338';
-                const torontoCrewGroupID = '225339';
-                const torontoRFIGroupID = '225792';
-
-                const montrealRiderGroupID = '225521';
-                const montrealCrewGroupID = '225522';
-                const montrealRFIGroupID = '225927';
-
-                const vancouverRiderGroupID = '225533';
-                const vancouverCrewGroupID = '225534';
-                const vancouverRFIGroupID = '225948';
 
                 const convioUrl = 'https://secure2.convio.net/cfrca/site/CRGroupAPI?';
                 const getGroupInfo = 'method=getGroupInfo&api_key=cfrca&v=1.0&response_format=json&group_id=';
+                const ssoToken = this.data.getSingleSignOnTokenResponse.token;
 
-                // Full URL after concat //
+                // Group Objects with ID(s) per event
+                const albertaGroup: any = {
+                    riderID: '225527',
+                    crewID: '225528',
+                    rfiID: '225929',
+                    apiCall: convioUrl + getGroupInfo
+                };
+
+                const torontoGroup: any = {
+                    riderID: '225338',
+                    crewID: '225339',
+                    rfiID: '225792',
+                    apiCall: convioUrl + getGroupInfo
+                };
+
+                const montrealGroup: any = {
+                    riderID: '225521',
+                    crewID: '225522',
+                    rfiID: '225927',
+                    apiCall: convioUrl + getGroupInfo
+                };
+
+                const vancouverGroup: any = {
+                    riderID: '225533',
+                    crewID: '225534',
+                    rfiID: '225948',
+                    apiCall: convioUrl + getGroupInfo
+                };
+
+                // Full URL(s) after concat //
 
                 // Toronto URLs
-                const torontoCrewUrl = convioUrl + getGroupInfo + torontoCrewGroupID + '&sso_auth_token=';
-                const torontoRiderUrl = convioUrl + getGroupInfo + torontoRiderGroupID + '&sso_auth_token=';
-                const torontoRFIUrl = convioUrl + getGroupInfo + torontoRFIGroupID + '&sso_auth_token=';
+                const torontoCrewUrl = torontoGroup.apiCall + torontoGroup.crewID + '&sso_auth_token=';
+                const torontoRiderUrl = torontoGroup.apiCall + torontoGroup.riderID + '&sso_auth_token=';
+                const torontoRFIUrl = torontoGroup.apiCall + torontoGroup.rfiID + '&sso_auth_token=';
 
                 // Alberta URLs
-                const albertaCrewUrl = convioUrl + getGroupInfo + albertaCrewGroupID + '&sso_auth_token=';
-                const albertaRiderUrl = convioUrl + getGroupInfo + albertaRiderGroupID + '&sso_auth_token=';
-                const albertaRFIUrl = convioUrl + getGroupInfo + albertaRFIGroupID + '&sso_auth_token=';
+                const albertaCrewUrl = albertaGroup.apiCall + albertaGroup.crewID + '&sso_auth_token=';
+                const albertaRiderUrl = albertaGroup.apiCall + albertaGroup.riderID + '&sso_auth_token=';
+                const albertaRFIUrl = albertaGroup.apiCall + albertaGroup.rfiID + '&sso_auth_token=';
 
                 // Montreal URLs
-                const montrealCrewUrl = convioUrl + getGroupInfo + montrealCrewGroupID + '&sso_auth_token=';
-                const montrealRiderUrl = convioUrl + getGroupInfo + montrealRiderGroupID + '&sso_auth_token=';
-                const montrealRFIUrl = convioUrl + getGroupInfo + montrealRFIGroupID + '&sso_auth_token=';
+                const montrealCrewUrl = montrealGroup.apiCall + montrealGroup.crewID + '&sso_auth_token=';
+                const montrealRiderUrl = montrealGroup.apiCall + montrealGroup.riderID + '&sso_auth_token=';
+                const montrealRFIUrl = montrealGroup.apiCall + montrealGroup.rfiID + '&sso_auth_token=';
 
                 // Vancouver URLs
-                const vancouverCrewUrl = convioUrl + getGroupInfo + vancouverCrewGroupID + '&sso_auth_token=';
-                const vancouverRiderUrl = convioUrl + getGroupInfo + vancouverRiderGroupID + '&sso_auth_token=';
-                const vancouverRFIUrl = convioUrl + getGroupInfo + vancouverRFIGroupID + '&sso_auth_token=';
+                const vancouverCrewUrl = vancouverGroup.apiCall + vancouverGroup.crewID + '&sso_auth_token=';
+                const vancouverRiderUrl = vancouverGroup.apiCall + vancouverGroup.riderID + '&sso_auth_token=';
+                const vancouverRFIUrl = vancouverGroup.apiCall + vancouverGroup.rfiID + '&sso_auth_token=';
 
-                // After SSO Token is Received, Get Data
+                // After SSO Token is received, fetch data
 
                 // Toronto 2017
-                $.getJSON(torontoCrewUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
-//                    console.log(getData.getGroupInfoResponse.groupInfo.numMembers);
+                $.getJSON(torontoCrewUrl + ssoToken, function (getData){
                     $('.to-crew').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
-                $.getJSON(torontoRiderUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
+                $.getJSON(torontoRiderUrl + ssoToken, function (getData){
                     $('.to-rider').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
-                $.getJSON(torontoRFIUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
+                $.getJSON(torontoRFIUrl + ssoToken, function (getData){
                     $('.to-rfi').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
 
                 // Alberta 2017
-                $.getJSON(albertaCrewUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
+                $.getJSON(albertaCrewUrl + ssoToken, function (getData){
                     $('.ab-crew').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
-                $.getJSON(albertaRiderUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
+                $.getJSON(albertaRiderUrl + ssoToken, function (getData){
                     $('.ab-rider').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
-                $.getJSON(albertaRFIUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
+                $.getJSON(albertaRFIUrl + ssoToken, function (getData){
                     $('.ab-rfi').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
 
                 // Montreal 2017
-                $.getJSON(montrealCrewUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
+                $.getJSON(montrealCrewUrl + ssoToken, function (getData){
                     $('.mo-crew').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
-                $.getJSON(montrealRiderUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
+                $.getJSON(montrealRiderUrl + ssoToken, function (getData){
                     $('.mo-rider').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
-                $.getJSON(montrealRFIUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
+                $.getJSON(montrealRFIUrl + ssoToken, function (getData){
                     $('.mo-rfi').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
 
                 // Vancouver 2017
-                $.getJSON(vancouverCrewUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
+                $.getJSON(vancouverCrewUrl + ssoToken, function (getData){
                     $('.va-crew').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
-                $.getJSON(vancouverRiderUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
+                $.getJSON(vancouverRiderUrl + ssoToken, function (getData){
                     $('.va-rider').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
-                $.getJSON(vancouverRFIUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){
+                $.getJSON(vancouverRFIUrl + ssoToken, function (getData){
                     $('.va-rfi').append(getData.getGroupInfoResponse.groupInfo.numMembers);
                 });
 
@@ -146,17 +159,25 @@ export class HomeComponent {
                 console.log('after reading');
                 console.log(this.data);
 
-                const brisbaneWalkerGroupID = '52862';
-                const melbourneWalkerGroupID = '53147';
-
                 const convioUrl = 'https://secure2.convio.net/cfnz/site/CRGroupAPI?';
                 const getGroupInfo = 'method=getGroupInfo&api_key=cfnz&v=1.0&response_format=json&group_id=';
 
-                // Brisbane URLs
-                const brisbaneWalkerUrl = convioUrl + getGroupInfo + brisbaneWalkerGroupID + '&sso_auth_token=';
+                 // Group Objects with ID(s) per event
+                const brisbaneGroup: any = {
+                    walkerID: '52862' + '&sso_auth_token=',
+                    apiCall: convioUrl + getGroupInfo
+                };
 
-                // Melbourne URLs
-                const melbourneWalkerUrl = convioUrl + getGroupInfo + melbourneWalkerGroupID + '&sso_auth_token=';
+                const melbourneGroup: any = {
+                    walkerID: '53147' + '&sso_auth_token=',
+                    apiCall: convioUrl + getGroupInfo
+                };
+
+                // Brisbane Final URLs
+                const brisbaneWalkerUrl = brisbaneGroup.apiCall + brisbaneGroup.walkerID;
+
+                // Melbourne Final URLs
+                const melbourneWalkerUrl = melbourneGroup.apiCall + melbourneGroup.walkerID;
 
                 // Brisbane 2017
                 $.getJSON(brisbaneWalkerUrl + this.data.getSingleSignOnTokenResponse.token, function (getData){

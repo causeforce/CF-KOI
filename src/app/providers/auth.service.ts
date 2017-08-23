@@ -16,7 +16,7 @@ export class AuthService {
     constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
         this.user = firebaseAuth.authState;
     }
-
+// Sign up logic
     signup(email: string, password: string) {
         this.firebaseAuth
             .auth
@@ -28,14 +28,15 @@ export class AuthService {
             console.log('Something went wrong:', err.message);
         });
     }
-
+// Login logic
     login(email: string, password: string) {
         this.firebaseAuth
             .auth
             .signInWithEmailAndPassword(email, password)
             .then(value => {
             console.log('Awesome, logged in!');
-            console.log(value);
+//            console.log(value);
+            console.log(value.emailVerified);
             this.loggedIn = true;
             this.router.navigate(['/app-home']);
             return true;
@@ -46,7 +47,7 @@ export class AuthService {
             this.loggedIn = false;
         });
     }
-
+// Logout logic
     logout() {
         this.firebaseAuth
             .auth
