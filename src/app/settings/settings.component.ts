@@ -10,7 +10,18 @@ import * as $ from 'jquery';
 })
 export class SettingsComponent {
 
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService) {
+      firebase.auth().onAuthStateChanged(function (user) {
+          console.log(user);
+          if (user.emailVerified) {
+            console.log('Email is verified');
+            $('.email-verify').html('Email is now verified. You\'re all set!');
+          } else {
+            console.log('Email is not verified');
+              $('.email-verify').html('Email is NOT verified. Please check your email.');
+          }
+      });
+  }
 
   changeDisplayName() {
             firebase.auth().onAuthStateChanged(function (user) {
