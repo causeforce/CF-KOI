@@ -10,8 +10,4 @@ Run `npm run build —watch` to build “on the go” and watch for any changes.
 Run `npm start` to start the server, which then runs calls to our API end-points and appends latest data into MongoDB. (this must be running in order to use the app).
 
 ## Author / Developer
-Name: Moe Quraishi (Front-end / MEAN Stack Developer)
-
-Email: mquraishi@causeforce.com
-
-Site: www.moequraishi.com
+💻 Moe Quraishi, Front-end / MEAN Stack Developer (mquraishi@causeforce.com) (www.moequraishi.com)
