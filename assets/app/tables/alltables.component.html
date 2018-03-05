@@ -1,40 +1,10 @@
-<div *ngIf="isLoggedIn()" class="row">
-  <div class="col-xs-12">
-    <button class="btn-view">View Table Menu</button>
-  </div>
-</div>
-<div class="row all-buttons-row">
-    <div class="col-xs-12">
-        <h3 class="text-center">Choose location &amp; event:</h3>
-    </div>
-    <div class="col-md-3">
-        <h4 class="text-center">All</h4>
-        <button class="center-block btn btn-success all-btn">Display All Events</button>
-    </div>
-    <div class="col-md-3">
-        <h4 class="text-center">Ride</h4>
-        <button class="btn btn-primary alberta-btn">Alberta</button>
-        <button class="btn btn-primary toronto-btn">Toronto</button>
-        <button class="btn btn-primary montreal-btn">Montreal</button>
-        <button class="btn btn-primary vancouver-btn">Vancouver</button>
-        <button class="btn btn-primary perth-btn">Perth</button>
-    </div>
-    <div class="col-md-3">
-        <h4 class="text-center">OneWalk</h4>
-        <button class="btn btn-ow ow-toronto-btn">Toronto</button>
-    </div>
-    <div class="col-md-3">
-        <h4 class="text-center">OneDay</h4>
-        <button class="btn btn-od melbourne-btn">Melbourne</button>
-    </div>
-</div>
-<br/>
+
 <div *ngIf="isLoggedIn() && data" class="table-responsive all-table">
     <h3>Today</h3>
     <p>* x = not applicable data</p>
     <table class="table table-bordered table-hover">
         <tr class="text-center">
-            <th>RTCC</th>
+            <th>Event Name</th>
             <th class="text-center">RFI</th>
             <th class="text-center">RIDERS</th>
             <th class="text-center">VIRTUAL RIDERS</th>
@@ -105,13 +75,25 @@
         </tr>
         <tr class="data-json">
             <td class="koi-blue">
+               2018 Brisbane OneDay
+            </td>
+            <td>x</td>
+            <td>{{data.br18RidersDaily}}</td>
+            <td>x</td>
+            <td>x</td>
+            <td>{{data.br18WalkersDaily}}</td>
+            <td>{{data.br18DonDaily}}</td>
+            <td>{{data.br18RegDaily}}</td>
+        </tr>
+        <tr class="data-json">
+            <td class="koi-blue">
                2018 Melbourne OneDay
             </td>
             <td>x</td>
             <td>{{data.ml18RidersDaily}}</td>
             <td>x</td>
             <td>x</td>
-            <td>x</td>
+            <td>{{data.ml18WalkersDaily}}</td>
             <td>{{data.ml18DonDaily}}</td>
             <td>{{data.ml18RegDaily}}</td>
         </tr>
@@ -135,9 +117,9 @@
     <p>* x = not applicable data</p>
     <table class="table table-bordered table-hover">
         <tr class="text-center">
-            <th>RTCC</th>
+            <th>Event Name</th>
             <th class="text-center">RFI</th>
-            <th class="text-center">RIDERS</th>
+            <th class="text-center">TOTAL PARTICIPANTS</th>
             <th class="text-center">VIRTUAL RIDERS</th>
             <th class="text-center">CREWS</th>
             <th class="text-center">WALKERS</th>
@@ -173,7 +155,7 @@
                 2018 Toronto RTCC
             </td>
             <td>{{data.to18RFI}}</td>
-            <td>{{data.to18Riders}}</td>
+            <td>{{data.to18TotalParticipants}}</td>
             <td>{{data.to18VR}}</td>
             <td>{{data.to18Crews}}</td>
             <td>x</td>
@@ -206,13 +188,25 @@
         </tr>
         <tr class="data-json">
             <td class="koi-blue">
+               2018 Brisbane OneDay
+            </td>
+            <td>x</td>
+            <td>{{data.br18Riders}}</td>
+            <td>x</td>
+            <td>x</td>
+            <td>{{data.br18Walkers}}</td>
+            <td>{{data.br18Donations}}</td>
+            <td>{{data.br18RegFee}}</td>
+        </tr>
+        <tr class="data-json">
+            <td class="koi-blue">
                2018 Melbourne OneDay
             </td>
             <td>x</td>
             <td>{{data.ml18Riders}}</td>
             <td>x</td>
             <td>x</td>
-            <td>x</td>
+            <td>{{data.ml18Walkers}}</td>
             <td>{{data.ml18Donations}}</td>
             <td>{{data.ml18RegFee}}</td>
         </tr>
@@ -290,13 +284,25 @@
         </tr>
         <tr class="data-json">
             <td class="koi-blue">
+               2017 Brisbane OneDay
+            </td>
+            <td>x</td>
+            <td>{{data.br17Riders}}</td>
+            <td>x</td>
+            <td>x</td>
+            <td>{{data.br17Walkers}}</td>
+            <td>{{data.br17Donations}}</td>
+            <td>{{data.br17RegFee}}</td>
+        </tr>
+        <tr class="data-json">
+            <td class="koi-blue">
                2017 Melbourne OneDay
             </td>
             <td>x</td>
             <td>{{data.ml17Riders}}</td>
             <td>x</td>
             <td>x</td>
-            <td>x</td>
+            <td>{{data.ml17Walkers}}</td>
             <td>{{data.ml17Donations}}</td>
             <td>{{data.ml17RegFee}}</td>
         </tr>
@@ -342,3 +348,7 @@
 <!-- BEGIN OneDay Melbourne Table -->
 
 <app-melbourne class="table-responsive ml-table"></app-melbourne>
+
+<!-- BEGIN OneDay Brisbane Table -->
+
+<app-brisbane class="table-responsive br-table"></app-brisbane>

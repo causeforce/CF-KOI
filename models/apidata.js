@@ -13,6 +13,7 @@ var dataSchema = new Schema({
     to18Riders2: String,
     to18OneDay: String,
     to18VR: String,
+    to18TotalParticipants: String,
     mo18Donations: String,
     mo18RegFee: String,
     mo18Crews: String,
@@ -83,6 +84,14 @@ var dataSchema = new Schema({
     pr17Crews: String,
     pr17RFI:String,
     pr17Riders: String,
+    br18Donations: String,
+    br18RegFee: String,
+    br18Walkers: String,
+    br18Riders: String,
+    br17Donations: String,
+    br17RegFee: String,
+    br17Walkers: String,
+    br17Riders: String,
     ml18Donations: String,
     ml18RegFee: String,
     ml18Walkers: String,
@@ -138,10 +147,15 @@ var dataSchema = new Schema({
     owto1825kmWalkersDaily: String,
     owto1840kmWalkersDaily: String,
     owto18CrewsDaily: String,
+    br18DonDaily: String,
+    br18RegDaily: String,
+    br18RidersDaily: String,
+    br18WalkersDaily: String,
     ml18DonDaily: String,
     ml17DonDaily: String,
     ml18RegDaily: String,
-    ml18RidersDaily: String
+    ml18RidersDaily: String,
+    ml18WalkersDaily: String
 }, {versionKey: false});
 
 module.exports = mongoose.model('ApiData', dataSchema);
